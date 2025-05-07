@@ -1,0 +1,58 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get current branch
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+
+# GitFlow branch prefixes
+FEATURE_PREFIX="feature/"
+BUGFIX_PREFIX="bugfix/"
+RELEASE_PREFIX="release/"
+HOTFIX_PREFIX="hotfix/"
+SUPPORT_PREFIX="support/"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo "${BLUE}----------------------------------------${NC}"
+echo "${BLUE}🔄 GitFlow Push Reminder${NC}"
+echo "${BLUE}----------------------------------------${NC}"
+
+if [ "$CURRENT_BRANCH" = "main" ]; then
+    echo "${RED}⚠️ Pushing to main branch directly${NC}"
+    echo "${YELLOW}In GitFlow, you should typically:${NC}"
+    echo "  - Create hotfixes from main: ${GREEN}git flow hotfix start <version>${NC}"
+    echo "  - Merge through release branches: ${GREEN}git flow release start <version>${NC}"
+    echo "  - Continue? (push will proceed regardless)"
+    
+elif [ "$CURRENT_BRANCH" = "develop" ]; then
+    echo "${GREEN}✅ Pushing to develop branch${NC}"
+    echo "${YELLOW}After pushing:${NC}"
+    echo "  - Consider creating a new feature: ${GREEN}git flow feature start <name>${NC}"
+    echo "  - Or start a release when ready: ${GREEN}git flow release start <version>${NC}"
+    
+elif [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
+    feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
+    echo "${GREEN}✅ Pushing feature: ${feature_name}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
+    echo "  - Create a pull request to develop"
+    echo "  - Or finish feature locally: ${GREEN}git flow feature finish ${feature_name}${NC}"
+    
+elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
+    release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
+    echo "${GREEN}✅ Pushing release: ${release_version}${NC}"
+    echo "${YELLOW}Remember:${NC}"
+    echo "  - When testing is complete: ${GREEN}git flow release finish ${release_version}${NC}"
+    
+elif [[ $CURRENT_BRANCH == $HOTFIX_PREFIX* ]]; then
+    hotfix_version=${CURRENT_BRANCH#"$HOTFIX_PREFIX"}
+    echo "${GREEN}✅ Pushing hotfix: ${hotfix_version}${NC}"
+    echo "${YELLOW}Remember:${NC}"
+    echo "  - When fix is verified: ${GREEN}git flow hotfix finish ${hotfix_version}${NC}"
+fi
+
+echo "${BLUE}----------------------------------------${NC}"
