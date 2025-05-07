@@ -56,14 +56,16 @@
 - Include issue/ticket references when applicable
 - Keep commits focused on a single concern
 
-## Pull Request Process
+## Solo Workflow Process
 
-1. Create PR from feature branch to `develop`
-2. Ensure all tests pass and code meets standards
-3. Request review from at least one team member
-4. Address all feedback and resolve discussions
-5. Squash commits if needed for a clean history
-6. Merge only when approved
+1. Merge directly from feature branch to `develop` when complete
+   ```bash
+   git flow feature finish feature-name
+   ```
+2. Ensure all tests pass and code meets standards before finishing
+3. Keep commits clean and focused 
+4. Use meaningful commit messages with proper types
+5. For larger changes, consider self-review before finishing
 
 ## Tagging
 

@@ -1,0 +1,18 @@
+# <type>: Concise description in imperative mood
+#
+# More detailed explanation if needed. Wrap at 72 characters.
+# 
+# - Bullet points are welcome
+# - Explain the problem this commit addresses
+#
+# Types:
+# feat: New feature
+# fix: Bug fix
+# docs: Documentation changes
+# style: Formatting, missing semicolons, etc (no code change)
+# refactor: Code change that neither fixes a bug nor adds a feature
+# perf: Code change that improves performance
+# test: Adding or updating tests
+# chore: Updating build tasks, package manager configs, etc
+#
+# Related to: #issue-number (if applicable)

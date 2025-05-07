@@ -39,8 +39,7 @@ elif [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
     feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
     echo "${GREEN}✅ Pushing feature branch: ${feature_name}${NC}"
     echo "${YELLOW}Next steps:${NC}"
-    echo "  - Create a pull request to develop"
-    echo "  - Or finish feature locally: ${GREEN}git flow feature finish ${feature_name}${NC}"
+    echo "  - After pushing, finish when ready: ${GREEN}git flow feature finish ${feature_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
     release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
@@ -57,15 +56,12 @@ elif [[ $CURRENT_BRANCH == $BUGFIX_PREFIX* ]]; then
     bugfix_name=${CURRENT_BRANCH#"$BUGFIX_PREFIX"}
     echo "${GREEN}✅ Pushing bugfix branch: ${bugfix_name}${NC}"
     echo "${YELLOW}Next steps:${NC}"
-    echo "  - Create a pull request to develop"
-    echo "  - Wait for CI build to complete: ${GREEN}gh pr view${NC}"
-    echo "  - Or finish locally: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
+    echo "  - After pushing, finish when ready: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $SUPPORT_PREFIX* ]]; then
     support_name=${CURRENT_BRANCH#"$SUPPORT_PREFIX"}
     echo "${GREEN}✅ Pushing support branch: ${support_name}${NC}"
     echo "${YELLOW}Next steps:${NC}"
-    echo "  - Create a pull request if needed"
     echo "  - Support branches remain active for long-term maintenance"
 fi
 

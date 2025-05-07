@@ -47,8 +47,8 @@ elif [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
     echo "${YELLOW}Next steps:${NC}"
     echo "  - Stage your changes: ${GREEN}git add .${NC} or ${GREEN}git add <specific-files>${NC}"
     echo "  - Commit your changes: ${GREEN}git commit -m \"feat: your message\"${NC}"
-    echo "  - Push to create PR: ${GREEN}git push -u origin ${CURRENT_BRANCH}${NC}"
-    echo "  - Or finish locally: ${GREEN}git flow feature finish ${feature_name}${NC}"
+    echo "  - Push your changes: ${GREEN}git push -u origin ${CURRENT_BRANCH}${NC}"
+    echo "  - When finished: ${GREEN}git flow feature finish ${feature_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
     release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
@@ -74,8 +74,8 @@ elif [[ $CURRENT_BRANCH == $BUGFIX_PREFIX* ]]; then
     echo "  - Fix the bug in code"
     echo "  - Stage your changes: ${GREEN}git add <files>${NC}"
     echo "  - Commit your fix: ${GREEN}git commit -m \"fix: your bug fix\"${NC}"
-    echo "  - Push to create PR: ${GREEN}git push -u origin ${CURRENT_BRANCH}${NC}"
-    echo "  - Or finish locally: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
+    echo "  - Push your changes: ${GREEN}git push -u origin ${CURRENT_BRANCH}${NC}"
+    echo "  - When fixed: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $SUPPORT_PREFIX* ]]; then
     support_name=${CURRENT_BRANCH#"$SUPPORT_PREFIX"}
