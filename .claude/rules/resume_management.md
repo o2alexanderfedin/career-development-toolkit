@@ -28,11 +28,15 @@
 - **Incremental Updates**: Make small, focused changes to individual sections rather than complete rewrites
 - **Multi-format Output**: Generate multiple formats (PDF, Word, text) from a single markdown source
 - **Analysis-Driven Editing**: Analyze resume against target job requirements before making changes
+- **Mandatory Review**: Never complete a feature branch without client review of changes
+  - Always provide the path to updated files for review
+  - Wait for explicit approval before merging feature branches
+  - Provide a summary of all changes made during the feature development
 - **GitFlow for Solo Work**:
   - Use `feature/` branches for adding new skills or roles
   - Use `bugfix/` branches for correcting information
   - Use `release/` branches when preparing for a specific job application
-  - Direct merge with `git flow feature finish` without PR process
+  - Only merge after client review and approval
 
 ## Directory Structure Standards
 
