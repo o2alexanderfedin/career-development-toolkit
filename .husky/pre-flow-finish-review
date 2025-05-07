@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo "${BLUE}----------------------------------------${NC}"
+echo "${BLUE}🔄 Client Review Reminder${NC}"
+echo "${BLUE}----------------------------------------${NC}"
+echo "${YELLOW}IMPORTANT:${NC} Have you provided the paths to all changed files for client review?"
+echo "${YELLOW}IMPORTANT:${NC} Has the client explicitly approved these changes?"
+echo ""
+echo "You should always:"
+echo "1. ${GREEN}Provide paths to all changed files${NC}"
+echo "2. ${GREEN}Summarize the changes made${NC}"
+echo "3. ${GREEN}Wait for explicit client approval${NC}"
+echo ""
+echo "If you haven't done this yet, please abort this operation with Ctrl+C"
+echo "and request client review before proceeding."
+echo "${BLUE}----------------------------------------${NC}"
+
+# Allow user time to abort if needed
+sleep 5
