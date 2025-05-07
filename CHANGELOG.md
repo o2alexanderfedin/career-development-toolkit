@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2025-05-07
+### Added
+- LinkedIn MCP servers setup for job search and application
+- Virtual environments for Python-based MCP servers
+- Detailed documentation for LinkedIn API integration
+- TODO list for MCP server configuration after reboot
+
+### Changed
+- Updated MCPs README with new LinkedIn server options
+- Added security considerations for credential management
+
 ## [1.4.1] - 2025-05-07
 ### Added
 - Google Cloud Platform (GCP) to list of cloud technologies
