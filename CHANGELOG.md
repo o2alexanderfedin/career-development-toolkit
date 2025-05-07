@@ -7,6 +7,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2025-05-07
+### Added
+- Google Cloud Platform (GCP) to list of cloud technologies
+
+### Changed
+- Updated all resume versions with GCP experience
+- Added GCP to technology stacks in experience sections
+- Updated skills sections across all resume formats
+- Added GCP to cloud architecture references in director-level resume
+
+## [1.4.0] - 2025-05-07
+### Added
+- Director-level resume version for leadership positions
+- Strategically positioned experience sections for director roles
+- Leadership-focused skills matrix
+- Executive summary highlighting organizational leadership
+
+### Changed
+- Reorganized directory structure for better separation of concerns
+- Moved requirements files to dedicated `/requirements` directory
+- Structured resume sections by career positioning (director vs individual contributor)
+- Updated links in main README to reflect new file locations
+
+## [1.3.0] - 2025-05-07
+### Added
+- Job search requirements documentation
+- System requirements documentation
+- Targeted roles list avoiding traditional interviews
+- README for job search materials directory
+- Requirements tracking system
+
+### Changed
+- Updated main README with new resource links
+- Enhanced job targeting with interview style preferences
+- Restructured requirements into separate documents
+
 ## [1.2.0] - 2025-05-07
 ### Added
 - Comprehensive AI experience details and specialized techniques

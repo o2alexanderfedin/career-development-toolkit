@@ -56,11 +56,17 @@ This repository contains a modular, version-controlled system for managing vario
 
 - **Career Strategy**
   - [Job Position Analysis](/resume/reports/job_position_analysis.md) - Recommended roles based on experience
+  - [Targeted Roles (No Whiteboard)](/job_search/targeted_roles_no_whiteboard.md) - Roles avoiding traditional interviews
   - [Resume Analysis](/resume/reports/resume_analysis.md) - Resume enhancement recommendations
   - [LinkedIn Post Review](/tests/reports/engineering_leader_post_review.md) - LinkedIn content evaluation
 
 - **Complete Documents**
   - [Full Resume](/resume/versions/full_resume.md) - Current complete resume
+  - [Director-Level Resume](/resume/versions/director_level_resume.md) - Resume positioned for director/executive roles
+  
+- **Requirements**
+  - [Job Search Requirements](/requirements/job_search_requirements.md) - Preferences for job search
+  - [System Requirements](/requirements/system_requirements.md) - Requirements for this system
 
 ## Tools
 
@@ -72,6 +78,7 @@ This repository contains a modular, version-controlled system for managing vario
 
 Detailed best practices are documented in `.claude/rules/` directory, including:
 - [Resume Management](/.claude/rules/resume_management.md) - Guidelines for resume content and structure
+- [Directory Structure](/.claude/rules/directory_structure.md) - Standards for file organization
 - [GitFlow Process](/.claude/rules/gitflow.md) - Version control workflow
 - [Solo GitFlow](/.claude/rules/solo_gitflow.md) - GitFlow adapted for individual work
 - [Post-Mortem Analysis](/.claude/rules/post_mortem.md) - System for documenting problems and solutions

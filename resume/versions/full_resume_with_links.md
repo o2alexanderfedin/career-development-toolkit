@@ -26,7 +26,7 @@ Principal Software Engineer with 20+ years of experience leading technical initi
 - C#/.NET
 - TypeScript/Node.js
 - WebAssembly
-- Cloud Technologies (Azure, Serverless)
+- Cloud Technologies (Azure, AWS, GCP, Serverless)
 
 ### Leadership & Methodologies
 - Agile/XP & TDD Methodologies

@@ -21,7 +21,7 @@
 - C++/CUDA C++
 - C#/.NET
 - WebAssembly
-- Cloud Technologies (Azure, AWS Lambda, Serverless)
+- Cloud Technologies (Azure, AWS Lambda, GCP, Serverless)
 - Docker & Kubernetes
 
 ## Leadership & Methodologies

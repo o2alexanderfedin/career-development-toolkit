@@ -32,7 +32,7 @@ Principal AI Systems Engineer with 20+ years of experience designing intelligent
 - C++/CUDA C++
 - C#/.NET
 - WebAssembly
-- Cloud Technologies (Azure, AWS Lambda, Serverless)
+- Cloud Technologies (Azure, AWS Lambda, GCP, Serverless)
 - Docker & Kubernetes
 
 ### Leadership & Methodologies
@@ -85,7 +85,7 @@ Principal AI Systems Engineer with 20+ years of experience designing intelligent
 - Developed an advanced market research tool that synthesizes customer profiles from minimal data and simulates customer surveys to inform product decisions and marketing strategies
 - Created a career analysis system that evaluates professional materials (resumes, LinkedIn posts) and recommends optimal job positions based on experience, skills, and market demand
 
-**Technologies:** Python, LangChain, LlamaIndex, OpenAI API, Claude API, Pinecone, Weaviate, Neo4j, TypeScript, Node.js, React, Distributed Hash Table (DHT), IPFS, Azure Functions, AWS Lambda, Serverless Computing, Vector Databases, TensorFlow, PyTorch
+**Technologies:** Python, LangChain, LlamaIndex, OpenAI API, Claude API, Pinecone, Weaviate, Neo4j, TypeScript, Node.js, React, Distributed Hash Table (DHT), IPFS, Azure Functions, AWS Lambda, GCP, Serverless Computing, Vector Databases, TensorFlow, PyTorch
 
 ### NASA | Principal Software Engineer
 **October 2018 - February 2022**

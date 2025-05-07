@@ -1,14 +1,32 @@
 # Resume Sections
 
-Since we don't have PDF text extraction tools available, please manually add content to these sections based on your current resume:
+This directory contains modular resume components organized by career positioning.
 
-1. `skills.md` - Technical skills, technologies, methodologies
-2. `summary.md` - Professional summary/profile
-3. `experience.md` - Work history and professional experience 
-4. `education.md` - Educational background
+## Directory Structure
+
+- **common/** - Shared resume elements that don't change between positions
+  - Education, certifications, etc.
+
+- **individual_contributor/** - Resume sections for individual contributor roles
+  - Summary, experience, and skills focused on hands-on technical work
+
+- **director/** - Resume sections for director and executive roles
+  - Leadership-focused versions of summary, experience, and skills
+
+## Original Sections
+
+1. `skills.md` / `skills_structured.md` - Technical skills, technologies, methodologies
+2. `summary.md` / `summary_enhanced.md` - Professional summary/profile
+3. `experience.md` / `experience_structured.md` - Work history and professional experience 
+4. `education.md` / `education_enhanced.md` - Educational background
 5. `projects.md` - Notable projects (if applicable)
-6. `certifications.md` - Professional certifications (if applicable)
+6. `certifications.md` - Professional certifications
 
-You can either copy-paste from your original resume document or create new content for each section.
+## Usage
 
-I've created template files with headers for each section to make this process easier.
+These modular sections are assembled to create complete resume versions in the `/resume/versions/` directory.
+
+## Rules
+
+For detailed rules on directory structure and file organization, see:
+[Directory Structure Standards](/.claude/rules/directory_structure.md)
