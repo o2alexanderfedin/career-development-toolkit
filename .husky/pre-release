@@ -1,0 +1,77 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get current branch
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+RELEASE_PREFIX="release/"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Only run on release branches
+if [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
+    release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
+    
+    # Extract version number from branch name
+    if [[ $release_version == v* ]]; then
+        version=${release_version#"v"}
+    else
+        version=$release_version
+    fi
+    
+    # Get current version from VERSION file
+    if [ -f "VERSION" ]; then
+        current_version=$(cat VERSION)
+        
+        echo "${BLUE}----------------------------------------${NC}"
+        echo "${BLUE}🔄 GitFlow Release Version Check${NC}"
+        echo "${BLUE}----------------------------------------${NC}"
+        
+        if [ "$version" != "$current_version" ]; then
+            echo "${RED}⚠️ VERSION file does not match release branch${NC}"
+            echo "${YELLOW}Branch version:${NC} $version"
+            echo "${YELLOW}VERSION file:${NC} $current_version"
+            echo ""
+            echo "${YELLOW}Update VERSION file:${NC}"
+            echo "  - Run: ${GREEN}echo \"$version\" > VERSION${NC}"
+            echo "  - Then: ${GREEN}git add VERSION${NC}"
+            echo "  - And: ${GREEN}git commit -m \"chore: Update version to $version\"${NC}"
+            echo ""
+            echo "${YELLOW}Or update using version tool:${NC}"
+            echo "  - Run: ${GREEN}python scripts/version.py bump $version${NC}"
+            echo ""
+            echo "${RED}Aborting to allow you to fix the version mismatch.${NC}"
+            echo "${BLUE}----------------------------------------${NC}"
+            exit 1
+        fi
+        
+        # Check CHANGELOG.md
+        if [ -f "CHANGELOG.md" ]; then
+            if ! grep -q "\[$version\]" "CHANGELOG.md"; then
+                echo "${RED}⚠️ Version $version not found in CHANGELOG.md${NC}"
+                echo "${YELLOW}Update CHANGELOG:${NC}"
+                echo "  - Ensure there's a section for version $version in CHANGELOG.md"
+                echo "  - Run: ${GREEN}python scripts/version.py bump $version${NC}"
+                echo "${RED}Aborting to allow you to update the changelog.${NC}"
+                echo "${BLUE}----------------------------------------${NC}"
+                exit 1
+            fi
+        fi
+        
+        echo "${GREEN}✅ Version $version correctly set in VERSION file and CHANGELOG.md${NC}"
+        echo "${BLUE}----------------------------------------${NC}"
+    else
+        echo "${RED}⚠️ VERSION file not found${NC}"
+        echo "${YELLOW}Create VERSION file:${NC}"
+        echo "  - Run: ${GREEN}echo \"$version\" > VERSION${NC}"
+        echo "  - Then: ${GREEN}git add VERSION${NC}"
+        echo "  - And: ${GREEN}git commit -m \"chore: Add VERSION file with $version\"${NC}"
+        echo "${RED}Aborting to allow you to create the VERSION file.${NC}"
+        echo "${BLUE}----------------------------------------${NC}"
+        exit 1
+    fi
+fi

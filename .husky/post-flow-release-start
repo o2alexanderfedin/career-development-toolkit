@@ -1,0 +1,36 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get current branch
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+RELEASE_PREFIX="release/"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Only run on release branches
+if [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
+    release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
+    
+    # Extract version number from branch name
+    if [[ $release_version == v* ]]; then
+        version=${release_version#"v"}
+    else
+        version=$release_version
+    fi
+    
+    echo "${BLUE}----------------------------------------${NC}"
+    echo "${BLUE}🔄 GitFlow Release Start Hook${NC}"
+    echo "${BLUE}----------------------------------------${NC}"
+    echo "${GREEN}✅ Release branch created: ${CURRENT_BRANCH}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
+    echo "  1. Update version: ${GREEN}python scripts/version.py bump $version${NC}"
+    echo "  2. Make any final adjustments to your resume"
+    echo "  3. Test your resume with validators"
+    echo "  4. Finish release: ${GREEN}git flow release finish $release_version${NC}"
+    echo "${BLUE}----------------------------------------${NC}"
+fi
