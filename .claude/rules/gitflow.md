@@ -21,6 +21,7 @@
    ```bash
    git flow feature finish feature-name
    ```
+   - If no changes were made, you'll be prompted to cancel or continue
 4. This merges back to `develop` and deletes the feature branch
 
 ### Releases
@@ -33,6 +34,7 @@
    ```bash
    git flow release finish X.Y.Z
    ```
+   - If no changes were made, you'll be prompted to cancel or continue
 4. This merges to both `main` and `develop`, creates a tag, and deletes the release branch
 
 ### Hotfixes
@@ -45,7 +47,20 @@
    ```bash
    git flow hotfix finish X.Y.Z
    ```
+   - If no changes were made, you'll be prompted to cancel or continue
 4. This merges to both `main` and `develop`, creates a tag, and deletes the hotfix branch
+
+### Empty Branch Handling
+The workflow includes smart detection of branches with no changes:
+
+1. When finishing a branch with no changes:
+   - Option to cancel the operation and delete the branch
+   - Option to continue anyway (for documentation-only changes)
+   
+2. Benefits:
+   - Prevents empty merge commits that clutter history
+   - Saves time by avoiding unnecessary merges
+   - Keeps repository history clean and meaningful
 
 ## Commit Guidelines
 

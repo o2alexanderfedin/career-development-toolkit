@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get current branch
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+
+# Detect the flow type based on the branch prefix
+if [[ $CURRENT_BRANCH == feature/* ]]; then
+    FLOW_TYPE="feature"
+    BRANCH_NAME=${CURRENT_BRANCH#"feature/"}
+elif [[ $CURRENT_BRANCH == bugfix/* ]]; then
+    FLOW_TYPE="bugfix"
+    BRANCH_NAME=${CURRENT_BRANCH#"bugfix/"}
+elif [[ $CURRENT_BRANCH == hotfix/* ]]; then
+    FLOW_TYPE="hotfix"
+    BRANCH_NAME=${CURRENT_BRANCH#"hotfix/"}
+elif [[ $CURRENT_BRANCH == release/* ]]; then
+    FLOW_TYPE="release"
+    BRANCH_NAME=${CURRENT_BRANCH#"release/"}
+else
+    # Not on a gitflow branch, no need to run this hook
+    exit 0
+fi
+
+# Use the decision script to check if we should proceed
+$(dirname "$0")/../scripts/gitflow_decision.sh "$FLOW_TYPE" "$BRANCH_NAME"
+exit $?

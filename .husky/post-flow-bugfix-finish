@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo "${GREEN}✅ Bugfix branch completed successfully${NC}"
+
+# Get the bugfix name from the deleted branch in the reflog
+BUGFIX_BRANCH=$(git reflog -n 1 | grep -o "bugfix/[^ ]*" | head -1)
+if [ -n "$BUGFIX_BRANCH" ]; then
+    BUGFIX_NAME=${BUGFIX_BRANCH#"bugfix/"}
+    
+    echo "${YELLOW}Bugfix completed: ${BUGFIX_NAME}${NC}"
+    
+    # Use the pm_decision script to determine if post-mortem is needed
+    TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${BUGFIX_NAME}-fix.md"
+    $(dirname "$0")/../scripts/pm_decision.sh "Bugfix Implementation" "bugfix implementation" "$TEMPLATE_CMD"
+fi
