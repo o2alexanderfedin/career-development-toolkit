@@ -1,0 +1,29 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# This hook is called after commands that rewrite commits (e.g., git rebase)
+# $1 is the command that triggered the rewrite
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Check if this was triggered by a rebase
+if [ "$1" = "rebase" ]; then
+    # Get number of commits in the rebase
+    REBASE_HEAD_BEFORE=$(git rev-parse REBASE_HEAD)
+    ORIG_HEAD=$(git rev-parse ORIG_HEAD)
+    COMMIT_COUNT=$(git rev-list --count $ORIG_HEAD..$REBASE_HEAD_BEFORE 2>/dev/null || echo "0")
+    
+    # Only suggest post-mortem for complex rebases (more than 5 commits)
+    if [ "$COMMIT_COUNT" -gt 5 ]; then
+        echo "${YELLOW}You've completed a complex rebase operation.${NC}"
+        
+        # Use the pm_decision script to determine if post-mortem is needed
+        TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/process/$(date +%Y-%m-%d)_complex-rebase.md"
+        $(dirname "$0")/../scripts/pm_decision.sh "Complex Rebase Detected" "complex rebase operation" "$TEMPLATE_CMD"
+    fi
+fi

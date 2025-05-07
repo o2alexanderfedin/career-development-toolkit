@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "${GREEN}✅ Hotfix completed successfully${NC}"
+
+# Use the pm_decision script to determine if post-mortem is needed
+TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/[category]/$(date +%Y-%m-%d)_brief-description.md"
+$(dirname "$0")/../scripts/pm_decision.sh "GitFlow Hotfix Post-Finish Hook" "hotfix process" "$TEMPLATE_CMD"

@@ -1,0 +1,31 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get previous and current branch
+PREV_BRANCH=$1
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+
+# Only run when checking out 'develop' or 'main' from a feature branch
+if [[ "$CURRENT_BRANCH" == "develop" || "$CURRENT_BRANCH" == "main" ]] && [[ "$PREV_BRANCH" == *"feature/"* ]]; then
+    # Determine the feature name from previous branch
+    FEATURE_NAME=${PREV_BRANCH#"feature/"}
+    
+    # Colors for output
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    RED='\033[0;31m'
+    NC='\033[0m' # No Color
+    
+    # Count how many commits were in the feature branch
+    COMMIT_COUNT=$(git rev-list --count develop..$PREV_BRANCH 2>/dev/null || echo "0")
+    
+    # For significant features (more than 7 commits), suggest documenting insights
+    if [ "$COMMIT_COUNT" -gt 7 ]; then
+        echo "${YELLOW}You've just completed work on a significant feature: ${FEATURE_NAME}${NC}"
+        
+        # Use the pm_decision script to determine if post-mortem is needed
+        TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${FEATURE_NAME}-implementation.md"
+        $(dirname "$0")/../scripts/pm_decision.sh "Feature Implementation Insights" "feature implementation" "$TEMPLATE_CMD"
+    fi
+fi

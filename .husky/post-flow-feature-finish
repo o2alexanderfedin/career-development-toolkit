@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo "${GREEN}✅ Feature branch completed successfully${NC}"
+
+# Calculate if this was a significant feature based on commit count
+# Get the feature name from the deleted branch in the reflog
+FEATURE_BRANCH=$(git reflog -n 1 | grep -o "feature/[^ ]*" | head -1)
+if [ -n "$FEATURE_BRANCH" ]; then
+    FEATURE_NAME=${FEATURE_BRANCH#"feature/"}
+    
+    echo "${YELLOW}Feature completed: ${FEATURE_NAME}${NC}"
+    
+    # Use the pm_decision script to determine if post-mortem is needed
+    TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${FEATURE_NAME}-implementation.md"
+    $(dirname "$0")/../scripts/pm_decision.sh "Feature Implementation Insights" "feature implementation" "$TEMPLATE_CMD"
+fi

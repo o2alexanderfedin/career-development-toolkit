@@ -28,6 +28,7 @@ git add resume/sections/skills_structured.md
 git commit -m "feat: Add cloud engineering skills section"
 
 # Finish feature (merges to develop)
+# If no changes were made, you'll be prompted to cancel
 git flow feature finish add-cloud-skills
 ```
 
@@ -43,6 +44,7 @@ git add resume/sections/experience_structured.md
 git commit -m "fix: Correct employment dates for Tesla role"
 
 # Finish bugfix
+# If no changes were made, you'll be prompted to cancel
 git flow bugfix finish fix-job-dates
 ```
 
@@ -58,6 +60,7 @@ git add resume/customized/google_product_manager.md
 git commit -m "feat: Customize summary for Google PM role"
 
 # Finish release (merges to both develop and main)
+# If no changes were made, you'll be prompted to cancel
 git flow release finish google-pm-role
 ```
 
@@ -73,8 +76,21 @@ git add resume/versions/full_resume.md
 git commit -m "fix: Correct email address in contact info"
 
 # Finish hotfix
+# If no changes were made, you'll be prompted to cancel
 git flow hotfix finish 1.2.1
 ```
+
+### Empty Branch Handling
+
+All gitflow operations are enhanced with intelligent handling of branches with no changes:
+
+1. When you try to finish a branch with no changes, you'll be prompted with options:
+   - Cancel the operation and delete the branch
+   - Continue anyway (useful for documentation-only changes)
+
+2. This helps prevent cluttering your history with empty merge commits.
+
+3. The system automatically detects whether files have been modified, added, or deleted.
 
 ## Commit Guidelines
 
