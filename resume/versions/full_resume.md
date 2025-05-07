@@ -1,18 +1,24 @@
 # Alexander Fedin
-*Principal Software Engineer & Technical Leader*
+*Principal AI Systems Engineer & Technical Leader*
 
 ---
 
 ## Professional Summary
 
-Principal Software Engineer with 20+ years of experience leading technical initiatives across aerospace, defense, financial services, and automotive industries. Combines deep expertise in distributed systems, AI integration, and high-performance computing with a track record of delivering measurable business impact through innovative solutions. Specializes in optimizing complex systems, leading cross-functional engineering teams, cutting-edge prototyping, and mentoring technical talent. Committed to applying test-driven development and Agile/XP methodologies to deliver reliable, scalable enterprise software.
+Principal AI Systems Engineer with 20+ years of experience designing intelligent systems and leading technical initiatives across aerospace, defense, financial services, and emerging AI technologies. Expert in agentic AI systems, multi-agent architectures, and large language model orchestration, with a proven track record of developing autonomous solutions that reduce manual intervention by 60-85%. Combines deep expertise in distributed systems, AI integration, and high-performance computing with a track record of delivering measurable business impact through innovative autonomous solutions. Specializes in crafting advanced AI workflows using ReAct patterns and Chain-of-Thought planning, optimizing complex systems, and mentoring technical talent in cutting-edge AI applications. Committed to developing reliable, scalable AI systems that augment human capabilities while maintaining appropriate guardrails and safety measures.
 
 ---
 
 ## Technical Skills & Proficiencies
 
 ### Core Technical Skills
-- AI & Large Language Models (OpenAI, Bard, LLaMA)
+- Agentic AI Systems (Autonomous Agents, Multi-agent Architectures, Model Context Protocol)
+- Large Language Models (OpenAI GPT-4, Claude, Gemini, LLaMA, Mistral)
+- Advanced AI Planning (Chain-of-Thought, Tree-of-Thoughts, Plan-to-Code Generation)
+- Multi-scale Memory Management (Short/Long-term, Time-based Knowledge Filtering)
+- Retrieval-Augmented Generation (RAG, GraphRAG, Relational Knowledge)
+- LLM Fine-tuning for Instinct-like Behavior
+- Prompt Engineering & Context Optimization
 - Microservices Architecture
 - Performance Optimization
 - Data Pipelines & High-Throughput Processing
@@ -20,11 +26,14 @@ Principal Software Engineer with 20+ years of experience leading technical initi
 - Distributed Systems (P2P, DHT, IPFS)
 
 ### Programming & Technologies
+- Python (LangChain, LlamaIndex, OpenAI SDK, HuggingFace)
+- JavaScript/TypeScript (Node.js, Express)
+- Vector Databases (Pinecone, Weaviate, Qdrant)
 - C++/CUDA C++
 - C#/.NET
-- TypeScript/Node.js
 - WebAssembly
-- Cloud Technologies (Azure, Serverless)
+- Cloud Technologies (Azure, AWS Lambda, Serverless)
+- Docker & Kubernetes
 
 ### Leadership & Methodologies
 - Agile/XP & TDD Methodologies
@@ -57,24 +66,37 @@ Principal Software Engineer with 20+ years of experience leading technical initi
 - Established onboarding environment for contractors as the first external engineer to join the team
 - Delivered high-quality work despite limited system permissions compared to full-time employees
 
-### O2.services | Founder & Principal Software Engineer
+### O2.services | Founder & Principal AI Systems Engineer
 **June 2018 - Present**
 
-- Prototyped a globally distributed peer-to-peer cloud system, reducing hosting costs by ~20% through optimized resource utilization
-- Engineered a self-guided agentic system that enhanced autonomy and decreased manual intervention by ~30%, serving as a supervisory layer for AI-driven IDEs
-- Developed an OpenAI-powered semantically searchable knowledge base, slashing user search times by ~40% and accelerating decision-making
-- Prototyped a Startup Cyber-Assistant to help emerging companies prepare funding materials, broadening the consultancy's service offerings
+- Designed and implemented a multi-agent AI orchestration framework that autonomously completes complex software engineering tasks with 85% less human intervention
+- Created an advanced agentic workflow system with Chain-of-Thought, Tree-of-Thoughts, and plan-to-code generation capabilities, significantly improving task completion rates compared to traditional LLM approaches
+- Implemented Model Context Protocol to build agentic swarms with standardized cross-agent communication and structured reasoning
+- Developed a layered memory architecture combining short-term working memory with long-term RAG-based knowledge, reducing context reloading by 90% and doubling task continuity
+- Implemented temporal memory windows for filtering knowledge based on time periods, allowing agents to focus on relevant historical context for time-sensitive tasks
+- Utilized GraphRAG techniques that maintain semantic relationships between entities for more accurate and contextually relevant retrievals
+- Built model fine-tuning pipelines that instill instinct-like behavior in base models before higher-level reasoning is applied
+- Prototyped a globally distributed peer-to-peer cloud system with innovative resource allocation, reducing hosting costs and enabling edge computing capabilities
+- Experimented with fine-grained deduplication algorithms to simulate RemoteDMA over TCP/IP, UDP, and WebRTC protocols for P2P inference and machine learning on community-provided smart devices
+- Prototyped sophisticated AI-powered root cause analysis systems for enterprise telemetry, enabling faster incident resolution and preemptive issue detection
+- Built autonomous decision-making systems that optimize processes based on real-time conditions and constraints
+- Developed a Startup Cyber-Assistant that helps emerging companies prepare funding materials and business documentation, streamlining the early-stage fundraising process
+- Created an intelligent system that extracts detailed product and architectural design documentation from repositories, generates comprehensive user/developer guides, and recovers implicit stakeholder requirements from code
+- Developed an advanced market research tool that synthesizes customer profiles from minimal data and simulates customer surveys to inform product decisions and marketing strategies
+- Created a career analysis system that evaluates professional materials (resumes, LinkedIn posts) and recommends optimal job positions based on experience, skills, and market demand
 
-**Technologies:** TypeScript, Node.js, Distributed Hash Table (DHT), Torrent, IPFS, WebAssembly, Azure, Serverless Computing
+**Technologies:** Python, LangChain, LlamaIndex, OpenAI API, Claude API, Pinecone, Weaviate, Neo4j, TypeScript, Node.js, React, Distributed Hash Table (DHT), IPFS, Azure Functions, AWS Lambda, Serverless Computing, Vector Databases, TensorFlow, PyTorch
 
 ### NASA | Principal Software Engineer
 **October 2018 - February 2022**
 
-- Optimized drone telemetry pipelines, cutting data processing time by ~20% and enhancing situational awareness for the UTM (Unmanned Traffic Management) initiative
+- Engineered high-performance telemetry processing systems for drone data, cutting processing time by ~20% for the UTM (Unmanned Traffic Management) initiative
 - Led a MATLAB-to-Nvidia CUDA C++ transpiler project, boosting development speeds by ~200% for high-fidelity drone models
-- Championed Agile development, reducing release cycles by ~20% and improving cross-team collaboration
+- Designed anomaly detection algorithms for drone telemetry, improving incident alerting capabilities
+- Optimized real-time data pipelines for flight status monitoring, enhancing situational awareness for operators
+- Applied statistical analysis techniques to identify patterns in flight data and environmental conditions
 
-**Technologies:** C++, CUDA C++, MATLAB, Cloud Computing, Telemetry Systems
+**Technologies:** C++, CUDA C++, MATLAB, Python, AWS, Telemetry Systems, Data Processing
 
 ### Accuray Inc. | Software Architect
 **July 2017 - August 2018**
@@ -159,7 +181,27 @@ Principal Software Engineer with 20+ years of experience leading technical initi
 ### Electromechanical Engineering
 **Ural State Railway Institute, Ekaterinburg, Russia**
 
-*Additional Professional Development:*
-- Continuous learning through industry certifications
-- Self-directed study in AI, distributed systems, and cloud technologies
-- Regular participation in technical conferences and workshops
+---
+
+## Certifications & Professional Development
+
+### Azure AI Fundamentals (AI-900)
+**Microsoft** | 2023 | No Expiration
+
+### Deep Learning Specialization
+**Coursera / DeepLearning.AI** | 2022 | No Expiration
+
+### Advanced RAG Architectures
+**LangChain Academy** | 2024 | No Expiration
+
+### Large Language Model Advanced Topics 
+**OpenAI / Microsoft** | 2023 | No Expiration
+
+### Prompt Engineering for Developers
+**DeepLearning.AI** | 2023 | No Expiration
+
+### Professional Development
+- Regular contributor to AI agent development communities and forums
+- Speaker at regional AI meetups on multi-agent system architecture
+- Continuous learning through specialized courses in NLP and agentic AI
+- Active participant in AI safety workshops and discussions

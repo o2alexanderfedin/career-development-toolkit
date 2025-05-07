@@ -1,7 +1,13 @@
 # Technical Skills & Proficiencies
 
 ## Core Technical Skills
-- AI & Large Language Models (OpenAI, Bard, LLaMA)
+- Agentic AI Systems (Autonomous Agents, Multi-agent Architectures, Model Context Protocol)
+- Large Language Models (OpenAI GPT-4, Claude, Gemini, LLaMA, Mistral)
+- Advanced AI Planning (Chain-of-Thought, Tree-of-Thoughts, Plan-to-Code Generation)
+- Multi-scale Memory Management (Short/Long-term, Time-based Knowledge Filtering)
+- Retrieval-Augmented Generation (RAG, GraphRAG, Relational Knowledge)
+- LLM Fine-tuning for Instinct-like Behavior
+- Prompt Engineering & Context Optimization
 - Microservices Architecture
 - Performance Optimization
 - Data Pipelines & High-Throughput Processing
@@ -9,11 +15,14 @@
 - Distributed Systems (P2P, DHT, IPFS)
 
 ## Programming & Technologies
+- Python (LangChain, LlamaIndex, OpenAI SDK, HuggingFace)
+- JavaScript/TypeScript (Node.js, Express)
+- Vector Databases (Pinecone, Weaviate, Qdrant)
 - C++/CUDA C++
 - C#/.NET
-- TypeScript/Node.js
 - WebAssembly
-- Cloud Technologies (Azure, Serverless)
+- Cloud Technologies (Azure, AWS Lambda, Serverless)
+- Docker & Kubernetes
 
 ## Leadership & Methodologies
 - Agile/XP & TDD Methodologies

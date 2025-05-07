@@ -27,7 +27,10 @@ git flow feature start add-cloud-skills
 git add resume/sections/skills_structured.md
 git commit -m "feat: Add cloud engineering skills section"
 
-# Finish feature (merges to develop)
+# IMPORTANT: Provide paths to changed files for review
+# Wait for client approval before proceeding
+
+# Finish feature (merges to develop) ONLY after review
 # If no changes were made, you'll be prompted to cancel
 git flow feature finish add-cloud-skills
 ```
@@ -43,7 +46,10 @@ git flow bugfix start fix-job-dates
 git add resume/sections/experience_structured.md
 git commit -m "fix: Correct employment dates for Tesla role"
 
-# Finish bugfix
+# IMPORTANT: Provide paths to changed files for review
+# Wait for client approval before proceeding
+
+# Finish bugfix ONLY after review
 # If no changes were made, you'll be prompted to cancel
 git flow bugfix finish fix-job-dates
 ```
@@ -59,7 +65,10 @@ git flow release start google-pm-role
 git add resume/customized/google_product_manager.md
 git commit -m "feat: Customize summary for Google PM role"
 
-# Finish release (merges to both develop and main)
+# IMPORTANT: Provide paths to changed files for review
+# Wait for client approval before proceeding
+
+# Finish release ONLY after review (merges to both develop and main)
 # If no changes were made, you'll be prompted to cancel
 git flow release finish google-pm-role
 ```
@@ -75,7 +84,10 @@ git flow hotfix start 1.2.1
 git add resume/versions/full_resume.md
 git commit -m "fix: Correct email address in contact info"
 
-# Finish hotfix
+# IMPORTANT: Provide paths to changed files for review
+# Wait for client approval before proceeding
+
+# Finish hotfix ONLY after review
 # If no changes were made, you'll be prompted to cancel
 git flow hotfix finish 1.2.1
 ```
