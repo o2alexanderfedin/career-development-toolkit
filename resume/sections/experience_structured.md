@@ -25,6 +25,7 @@
 - Developed a Startup Cyber-Assistant that helps emerging companies prepare funding materials and business documentation, streamlining the early-stage fundraising process
 - Created an intelligent system that extracts detailed product and architectural design documentation from repositories, generates comprehensive user/developer guides, and recovers implicit stakeholder requirements from code
 - Developed an advanced market research tool that synthesizes customer profiles from minimal data and simulates customer surveys to inform product decisions and marketing strategies
+- Created a career analysis system that evaluates professional materials (resumes, LinkedIn posts) and recommends optimal job positions based on experience, skills, and market demand
 
 **Technologies:** Python, LangChain, LlamaIndex, OpenAI API, Claude API, Pinecone, Weaviate, Neo4j, TypeScript, Node.js, React, Distributed Hash Table (DHT), IPFS, Azure Functions, AWS Lambda, Serverless Computing, Vector Databases, TensorFlow, PyTorch
 
