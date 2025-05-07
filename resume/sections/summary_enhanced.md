@@ -1,0 +1,3 @@
+# Professional Summary
+
+Principal Software Engineer with 20+ years of experience leading technical initiatives across aerospace, defense, financial services, and automotive industries. Combines deep expertise in distributed systems, AI integration, and high-performance computing with a track record of delivering measurable business impact through innovative solutions. Specializes in optimizing complex systems, leading cross-functional engineering teams, cutting-edge prototyping, and mentoring technical talent. Committed to applying test-driven development and Agile/XP methodologies to deliver reliable, scalable enterprise software.
