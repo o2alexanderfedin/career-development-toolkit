@@ -31,21 +31,24 @@ if [ "$CURRENT_BRANCH" != "main" ] && [ "$CURRENT_BRANCH" != "develop" ] && [ $C
     if [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
         feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
         echo "${GREEN}✅ Feature branch: ${feature_name}${NC}"
-        echo "${YELLOW}Consider:${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more changes: ${GREEN}git add <files>${NC} then commit again"
         echo "  - Push your changes: ${GREEN}git push origin ${CURRENT_BRANCH}${NC}"
         echo "  - When ready to complete: ${GREEN}git flow feature finish ${feature_name}${NC}"
         
     elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
         release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
         echo "${GREEN}✅ Release branch: ${release_version}${NC}"
-        echo "${YELLOW}Remember:${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more fixes: ${GREEN}git add <files>${NC} then commit again"
         echo "  - Only bug fixes and release preparation allowed"
         echo "  - When ready: ${GREEN}git flow release finish ${release_version}${NC}"
         
     elif [[ $CURRENT_BRANCH == $HOTFIX_PREFIX* ]]; then
         hotfix_version=${CURRENT_BRANCH#"$HOTFIX_PREFIX"}
         echo "${GREEN}✅ Hotfix branch: ${hotfix_version}${NC}"
-        echo "${YELLOW}Remember:${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more fixes: ${GREEN}git add <files>${NC} then commit again"
         echo "  - Focus only on the critical issue"
         echo "  - When fixed: ${GREEN}git flow hotfix finish ${hotfix_version}${NC}"
     fi

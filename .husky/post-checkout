@@ -43,22 +43,27 @@ elif [ "$CURRENT_BRANCH" = "main" ]; then
 elif [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
     feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
     echo "${GREEN}✅ On feature branch: ${feature_name}${NC}"
-    echo "${YELLOW}When finished:${NC}"
+    echo "${YELLOW}Workflow:${NC}"
+    echo "  - Stage your changes: ${GREEN}git add .${NC} or ${GREEN}git add <specific-files>${NC}"
     echo "  - Commit your changes: ${GREEN}git commit -m \"feat: your message\"${NC}"
     echo "  - Finish the feature: ${GREEN}git flow feature finish ${feature_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
     release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
     echo "${GREEN}✅ On release branch: ${release_version}${NC}"
-    echo "${YELLOW}When finished:${NC}"
+    echo "${YELLOW}Workflow:${NC}"
     echo "  - Only fix bugs, update docs, or prepare release"
+    echo "  - Stage changes: ${GREEN}git add <files>${NC}"
+    echo "  - Commit with type: ${GREEN}git commit -m \"fix: your bug fix\"${NC}"
     echo "  - Finish the release: ${GREEN}git flow release finish ${release_version}${NC}"
     
 elif [[ $CURRENT_BRANCH == $HOTFIX_PREFIX* ]]; then
     hotfix_version=${CURRENT_BRANCH#"$HOTFIX_PREFIX"}
     echo "${GREEN}✅ On hotfix branch: ${hotfix_version}${NC}"
-    echo "${YELLOW}When finished:${NC}"
+    echo "${YELLOW}Workflow:${NC}"
     echo "  - Fix the critical issue only"
+    echo "  - Stage your fixes: ${GREEN}git add <files>${NC}"
+    echo "  - Commit with type: ${GREEN}git commit -m \"fix: critical issue description\"${NC}"
     echo "  - Finish the hotfix: ${GREEN}git flow hotfix finish ${hotfix_version}${NC}"
 fi
 
