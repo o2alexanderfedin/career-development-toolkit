@@ -1,0 +1,22 @@
+[gitflow "branch"]
+	master = main
+	develop = develop
+[gitflow "prefix"]
+	feature = feature/
+	bugfix = bugfix/
+	release = release/
+	hotfix = hotfix/
+	support = support/
+	versiontag = 
+[gitflow "path"]
+	hooks = .husky
+[core]
+	editor = vim
+[merge]
+	ff = false
+[commit]
+	template = .gitmessage
+[push]
+	default = current
+[pull]
+	rebase = false

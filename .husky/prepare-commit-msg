@@ -1,0 +1,51 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get the current branch name
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Extract branch type and feature name
+BRANCH_TYPE=""
+FEATURE_NAME=""
+
+if [[ $BRANCH_NAME == feature/* ]]; then
+    BRANCH_TYPE="feat"
+    FEATURE_NAME=${BRANCH_NAME#feature/}
+elif [[ $BRANCH_NAME == bugfix/* ]]; then
+    BRANCH_TYPE="fix"
+    FEATURE_NAME=${BRANCH_NAME#bugfix/}
+elif [[ $BRANCH_NAME == hotfix/* ]]; then
+    BRANCH_TYPE="fix"
+    FEATURE_NAME=${BRANCH_NAME#hotfix/}
+elif [[ $BRANCH_NAME == release/* ]]; then
+    BRANCH_TYPE="release"
+    FEATURE_NAME=${BRANCH_NAME#release/}
+fi
+
+# Only modify if we're in a GitFlow branch and 
+# the commit message doesn't already start with branch type
+if [ -n "$BRANCH_TYPE" ] && [ -n "$FEATURE_NAME" ]; then
+    COMMIT_MSG_FILE=$1
+    COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
+    
+    # Check if commit message already starts with type
+    if ! [[ $COMMIT_MSG =~ ^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\(.+\))?:\ .* ]]; then
+        # Convert feature name to message: replace hyphens with spaces, capitalize first letter
+        MESSAGE=$(echo $FEATURE_NAME | sed 's/-/ /g' | sed 's/\<./\U&/g')
+        
+        # Create new commit message
+        if [ "$BRANCH_TYPE" = "release" ]; then
+            # For release branches, we want "chore: Release vX.Y.Z"
+            echo "chore: Release $MESSAGE" > $COMMIT_MSG_FILE
+        else
+            # For other branches, use branch type and name
+            echo "$BRANCH_TYPE: $MESSAGE" > $COMMIT_MSG_FILE
+        fi
+        
+        # Append original message as the body if it's not empty
+        if [ -n "$COMMIT_MSG" ]; then
+            echo "" >> $COMMIT_MSG_FILE
+            echo "$COMMIT_MSG" >> $COMMIT_MSG_FILE
+        fi
+    fi
+fi

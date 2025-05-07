@@ -6,6 +6,7 @@
 - **Single Source of Truth**: Maintain each section in a dedicated file and reference these in the complete resume
 - **Version Control**: Track changes to resume components individually for better change management
 - **Linking Strategy**: Use relative paths when linking between documents to maintain portability
+- **Solo Workflow**: Use feature branches for major resume updates, with direct merges to develop when complete
 
 ## Content Enhancement
 
@@ -27,6 +28,11 @@
 - **Incremental Updates**: Make small, focused changes to individual sections rather than complete rewrites
 - **Multi-format Output**: Generate multiple formats (PDF, Word, text) from a single markdown source
 - **Analysis-Driven Editing**: Analyze resume against target job requirements before making changes
+- **GitFlow for Solo Work**:
+  - Use `feature/` branches for adding new skills or roles
+  - Use `bugfix/` branches for correcting information
+  - Use `release/` branches when preparing for a specific job application
+  - Direct merge with `git flow feature finish` without PR process
 
 ## Directory Structure Standards
 

@@ -1,0 +1,72 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get current branch
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+
+# GitFlow branch prefixes
+FEATURE_PREFIX="feature/"
+BUGFIX_PREFIX="bugfix/"
+RELEASE_PREFIX="release/"
+HOTFIX_PREFIX="hotfix/"
+SUPPORT_PREFIX="support/"
+
+# Colors for output
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Get last commit message
+LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+
+# Only show reminders if we have several commits in a feature branch
+COMMIT_COUNT=$(git rev-list --count HEAD ^develop)
+
+if [ "$CURRENT_BRANCH" != "main" ] && [ "$CURRENT_BRANCH" != "develop" ] && [ $COMMIT_COUNT -gt 1 ]; then
+    echo "${BLUE}----------------------------------------${NC}"
+    echo "${BLUE}🔄 GitFlow Commit Reminder${NC}"
+    echo "${BLUE}----------------------------------------${NC}"
+    
+    if [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
+        feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
+        echo "${GREEN}✅ On feature branch: ${feature_name}${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more changes: ${GREEN}git add <files>${NC} then commit again"
+        echo "  - Push your changes: ${GREEN}git push origin ${CURRENT_BRANCH}${NC}"
+        echo "  - When ready to complete: ${GREEN}git flow feature finish ${feature_name}${NC}"
+        
+    elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
+        release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
+        echo "${GREEN}✅ On release branch: ${release_version}${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more fixes: ${GREEN}git add <files>${NC} then commit again"
+        echo "  - Only bug fixes and release preparation allowed"
+        echo "  - When ready: ${GREEN}git flow release finish ${release_version}${NC}"
+        
+    elif [[ $CURRENT_BRANCH == $HOTFIX_PREFIX* ]]; then
+        hotfix_version=${CURRENT_BRANCH#"$HOTFIX_PREFIX"}
+        echo "${GREEN}✅ On hotfix branch: ${hotfix_version}${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more fixes: ${GREEN}git add <files>${NC} then commit again"
+        echo "  - Focus only on the critical issue"
+        echo "  - When fixed: ${GREEN}git flow hotfix finish ${hotfix_version}${NC}"
+    elif [[ $CURRENT_BRANCH == $BUGFIX_PREFIX* ]]; then
+        bugfix_name=${CURRENT_BRANCH#"$BUGFIX_PREFIX"}
+        echo "${GREEN}✅ On bugfix branch: ${bugfix_name}${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more fixes: ${GREEN}git add <files>${NC} then commit again"
+        echo "  - Push to update PR: ${GREEN}git push origin ${CURRENT_BRANCH}${NC}"
+        echo "  - When ready: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
+        
+    elif [[ $CURRENT_BRANCH == $SUPPORT_PREFIX* ]]; then
+        support_name=${CURRENT_BRANCH#"$SUPPORT_PREFIX"}
+        echo "${GREEN}✅ On support branch: ${support_name}${NC}"
+        echo "${YELLOW}Next steps:${NC}"
+        echo "  - For more changes: ${GREEN}git add <files>${NC} then commit again"
+        echo "  - Push your changes: ${GREEN}git push origin ${CURRENT_BRANCH}${NC}"
+    fi
+    
+    echo "${BLUE}----------------------------------------${NC}"
+fi

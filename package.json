@@ -1,0 +1,35 @@
+{
+  "name": "career-development-toolkit",
+  "version": "1.0.0",
+  "description": "A structured approach to managing professional content using software development principles",
+  "scripts": {
+    "prepare": "husky install",
+    "start": "echo \"No start command defined\" && exit 0",
+    "test": "echo \"No tests defined\" && exit 0",
+    "gitflow:feature:start": "git flow feature start",
+    "gitflow:feature:finish": "git flow feature finish",
+    "gitflow:release:start": "git flow release start",
+    "gitflow:release:finish": "git flow release finish",
+    "gitflow:hotfix:start": "git flow hotfix start",
+    "gitflow:hotfix:finish": "git flow hotfix finish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o2alexanderfedin/career-development-toolkit.git"
+  },
+  "keywords": [
+    "career",
+    "resume",
+    "linkedin",
+    "job-search"
+  ],
+  "author": "Alexander Fedin",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/o2alexanderfedin/career-development-toolkit/issues"
+  },
+  "homepage": "https://github.com/o2alexanderfedin/career-development-toolkit#readme",
+  "devDependencies": {
+    "husky": "^8.0.3"
+  }
+}

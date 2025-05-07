@@ -1,6 +1,6 @@
 # Resume Management System
 
-This directory contains a modular, version-controlled resume management system designed using software development principles.
+This directory contains a modular, version-controlled resume management system designed using software development principles and GitFlow for solo workflow.
 
 ## Directory Structure
 
@@ -18,7 +18,7 @@ This directory contains a modular, version-controlled resume management system d
 - `/reports` - Analysis and recommendations
   - `resume_analysis.md` - Detailed review and enhancement suggestions
 
-- `/customized` - Tailored versions for specific roles (to be created)
+- `/customized` - Tailored versions for specific job applications
 
 ## Tools
 
@@ -64,6 +64,10 @@ The complete resume is available in multiple formats:
 3. Customize for each significant application
 4. Maintain consistent formatting
 5. Follow the TDD principles outlined in `CLAUDE.md`
+6. Use GitFlow branches for managing resume updates:
+   - `feature/` branches for adding new skills or experiences
+   - `bugfix/` branches for correcting errors
+   - `release/` branches when preparing for specific applications
 
 ## Report Generation
 For analysis of your resume against specific job targets:
