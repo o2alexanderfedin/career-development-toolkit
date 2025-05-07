@@ -226,8 +226,9 @@ def finish_release(version: str) -> None:
             print(f"Error: Not on the expected release branch. Expected {expected_branch}, got {current_branch}", file=sys.stderr)
             sys.exit(1)
         
-        # Finish the release
-        subprocess.run(["git", "flow", "release", "finish", "-m", f"Release {version}", branch_name], check=True)
+        # Finish the release - use underscore instead of space to avoid getopt issues
+        # See post-mortem: 2023-05-07_git-flow-release-spaces-issue.md
+        subprocess.run(["git", "flow", "release", "finish", "-m", f"Release_{version}", branch_name], check=True)
         print(f"Finished release: {version}")
         print(f"Created tag: {tag}")
         
