@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2025-05-07
+### Added
+- Comprehensive AI experience details and specialized techniques
+- New job position analysis report with career recommendations
+- Career analysis system with LinkedIn post evaluation
+- Documentation extraction system
+- Market research tool with customer profile synthesis
+- Additional certifications in AI and machine learning
+
+### Changed
+- Restructured resume to accurately attribute AI experience
+- Enhanced README with direct links to all key resources
+- Refined technical skills section with advanced AI capabilities
+- Improved navigation through documentation
+- Updated resume sections to reflect current expertise
+
+### Fixed
+- Corrected AI attribution in experience sections
+- Removed unverifiable metrics from experience descriptions
+- Fixed inconsistencies between skills and experience sections
+
+
 ## [1.1.0] - 2025-05-07
 ### Added
 - Post-mortem framework with skip option for non-significant events
