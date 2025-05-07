@@ -1,11 +1,13 @@
 # Technical Skills & Proficiencies
 
 ## Core Technical Skills
-- Agentic AI Systems (Autonomous Agents, Multi-agent Architectures)
+- Agentic AI Systems (Autonomous Agents, Multi-agent Architectures, Model Context Protocol)
 - Large Language Models (OpenAI GPT-4, Claude, Gemini, LLaMA, Mistral)
-- AI/LLM Orchestration & Planning (ReAct, Chain-of-Thought, Tool Use)
-- Prompt Engineering & LLM Fine-tuning
-- Retrieval-Augmented Generation (RAG)
+- Advanced AI Planning (Chain-of-Thought, Tree-of-Thoughts, Plan-to-Code Generation)
+- Multi-scale Memory Management (Short/Long-term, Time-based Knowledge Filtering)
+- Retrieval-Augmented Generation (RAG, GraphRAG, Relational Knowledge)
+- LLM Fine-tuning for Instinct-like Behavior
+- Prompt Engineering & Context Optimization
 - Microservices Architecture
 - Performance Optimization
 - Data Pipelines & High-Throughput Processing
