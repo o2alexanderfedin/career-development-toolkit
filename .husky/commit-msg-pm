@@ -14,16 +14,13 @@ NC='\033[0m' # No Color
 # Check for keywords indicating a fix for a significant issue
 if echo "$COMMIT_MSG" | grep -q -i "fix:\|hotfix:\|workaround:\|patch:\|emergency"; then
     if echo "$COMMIT_MSG" | grep -q -i "critical\|urgent\|severe\|security\|vulnerability\|crash\|corrupt\|data loss"; then
-        echo "${BLUE}----------------------------------------${NC}"
-        echo "${BLUE}🔄 Critical Issue Fix Detected${NC}"
-        echo "${BLUE}----------------------------------------${NC}"
         echo "${YELLOW}You appear to be fixing a significant issue.${NC}"
-        echo "Consider creating a post-mortem to document:"
-        echo "  - The root cause and impact of this issue"
-        echo "  - How you detected and diagnosed it"
-        echo "  - The solution approach and validation"
-        echo ""
-        echo "  - Create from template: ${GREEN}cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_$(echo $COMMIT_MSG | grep -o '[a-z0-9\-]*' | head -n1).md${NC}"
-        echo "${BLUE}----------------------------------------${NC}"
+        
+        # Extract a brief identifier from the commit message
+        ISSUE_ID=$(echo $COMMIT_MSG | grep -o '[a-z0-9\-]*' | head -n1)
+        
+        # Use the pm_decision script to determine if post-mortem is needed
+        TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${ISSUE_ID}.md"
+        $(dirname "$0")/../scripts/pm_decision.sh "Critical Issue Fix Detected" "critical issue fix" "$TEMPLATE_CMD"
     fi
 fi

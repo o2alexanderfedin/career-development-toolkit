@@ -121,6 +121,23 @@ See [PM:2023-05-07](/.claude/post_mortems/infrastructure/2023-05-07_git-flow-rel
 ## Integration with Development Workflow
 
 - When encountering a new issue, first check the post-mortem index for similar problems
-- After resolving any significant issue, write a post-mortem document
+- After resolving a significant issue, determine if it warrants a post-mortem document:
+  - Significant learning opportunity that could benefit future work
+  - Complex problem with non-obvious solution
+  - Issue that took substantial time to diagnose or fix
+  - Problem that might recur in different contexts
+- Skip post-mortem creation for routine issues with straightforward solutions
 - Reference post-mortems in release notes when relevant
 - Periodically review post-mortems to identify patterns or systemic issues
+
+## Automated Post-Mortem Prompts
+
+The system includes Git hooks that prompt for potential post-mortem documentation at key points:
+
+- After completing a release or hotfix
+- When resolving complex merge conflicts
+- After significant feature implementation
+- Following a complex rebase operation
+- When fixing critical issues
+
+Each prompt includes an option to skip post-mortem creation when not warranted, ensuring that only meaningful events are documented.

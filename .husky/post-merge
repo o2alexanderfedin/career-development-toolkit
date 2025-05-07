@@ -20,14 +20,11 @@ if [ "$PARENTS" -gt 1 ]; then
             RED='\033[0;31m'
             NC='\033[0m' # No Color
             
-            echo "${BLUE}----------------------------------------${NC}"
-            echo "${BLUE}🔄 Merge Conflict Resolution Detected${NC}"
-            echo "${BLUE}----------------------------------------${NC}"
             echo "${YELLOW}You've just resolved merge conflicts.${NC}"
-            echo "Consider documenting challenging conflict resolutions in a post-mortem:"
-            echo "  - Create from template: ${GREEN}cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_merge-conflict-resolution.md${NC}"
-            echo "  - Help future developers understand how to resolve similar conflicts"
-            echo "${BLUE}----------------------------------------${NC}"
+            
+            # Use the pm_decision script to determine if post-mortem is needed
+            TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_merge-conflict-resolution.md"
+            $(dirname "$0")/../scripts/pm_decision.sh "Merge Conflict Resolution Detected" "merge conflict resolution" "$TEMPLATE_CMD"
         fi
     fi
 fi

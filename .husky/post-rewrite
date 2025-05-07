@@ -20,13 +20,10 @@ if [ "$1" = "rebase" ]; then
     
     # Only suggest post-mortem for complex rebases (more than 5 commits)
     if [ "$COMMIT_COUNT" -gt 5 ]; then
-        echo "${BLUE}----------------------------------------${NC}"
-        echo "${BLUE}🔄 Complex Rebase Detected${NC}"
-        echo "${BLUE}----------------------------------------${NC}"
         echo "${YELLOW}You've completed a complex rebase operation.${NC}"
-        echo "If you encountered any unusual issues, consider documenting them:"
-        echo "  - Create from template: ${GREEN}cp .claude/templates/post_mortem_template.md .claude/post_mortems/process/$(date +%Y-%m-%d)_complex-rebase.md${NC}"
-        echo "  - Document your rebase strategy for future reference"
-        echo "${BLUE}----------------------------------------${NC}"
+        
+        # Use the pm_decision script to determine if post-mortem is needed
+        TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/process/$(date +%Y-%m-%d)_complex-rebase.md"
+        $(dirname "$0")/../scripts/pm_decision.sh "Complex Rebase Detected" "complex rebase operation" "$TEMPLATE_CMD"
     fi
 fi

@@ -22,13 +22,10 @@ if [[ "$CURRENT_BRANCH" == "develop" || "$CURRENT_BRANCH" == "main" ]] && [[ "$P
     
     # For significant features (more than 7 commits), suggest documenting insights
     if [ "$COMMIT_COUNT" -gt 7 ]; then
-        echo "${BLUE}----------------------------------------${NC}"
-        echo "${BLUE}🔄 Feature Implementation Insights${NC}"
-        echo "${BLUE}----------------------------------------${NC}"
         echo "${YELLOW}You've just completed work on a significant feature: ${FEATURE_NAME}${NC}"
-        echo "Consider documenting technical insights or challenges overcome:"
-        echo "  - Create from template: ${GREEN}cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${FEATURE_NAME}-implementation.md${NC}"
-        echo "  - Focus on architecture decisions, patterns used, or complex problems solved"
-        echo "${BLUE}----------------------------------------${NC}"
+        
+        # Use the pm_decision script to determine if post-mortem is needed
+        TEMPLATE_CMD="cp .claude/templates/post_mortem_template.md .claude/post_mortems/code/$(date +%Y-%m-%d)_${FEATURE_NAME}-implementation.md"
+        $(dirname "$0")/../scripts/pm_decision.sh "Feature Implementation Insights" "feature implementation" "$TEMPLATE_CMD"
     fi
 fi
