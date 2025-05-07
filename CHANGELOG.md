@@ -9,7 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2025-05-07
 ### Added
-- Version bump
+- Post-mortem framework with skip option for non-significant events
+- Intelligent handling of empty gitflow branches
+- New Git hooks for feature and bugfix completion
+- Utility scripts for workflow improvement
+
+### Changed
+- Enhanced documentation for GitFlow workflow
+- Improved version management
 
 
 ## [1.0.1] - 2025-05-07
