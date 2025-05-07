@@ -24,35 +24,49 @@ echo "${BLUE}----------------------------------------${NC}"
 
 if [ "$CURRENT_BRANCH" = "main" ]; then
     echo "${RED}⚠️ Pushing to main branch directly${NC}"
-    echo "${YELLOW}In GitFlow, you should typically:${NC}"
+    echo "${YELLOW}Next steps:${NC}"
     echo "  - Create hotfixes from main: ${GREEN}git flow hotfix start <version>${NC}"
     echo "  - Merge through release branches: ${GREEN}git flow release start <version>${NC}"
     echo "  - Continue? (push will proceed regardless)"
     
 elif [ "$CURRENT_BRANCH" = "develop" ]; then
     echo "${GREEN}✅ Pushing to develop branch${NC}"
-    echo "${YELLOW}After pushing:${NC}"
+    echo "${YELLOW}Next steps:${NC}"
     echo "  - Consider creating a new feature: ${GREEN}git flow feature start <name>${NC}"
     echo "  - Or start a release when ready: ${GREEN}git flow release start <version>${NC}"
     
 elif [[ $CURRENT_BRANCH == $FEATURE_PREFIX* ]]; then
     feature_name=${CURRENT_BRANCH#"$FEATURE_PREFIX"}
-    echo "${GREEN}✅ Pushing feature: ${feature_name}${NC}"
+    echo "${GREEN}✅ Pushing feature branch: ${feature_name}${NC}"
     echo "${YELLOW}Next steps:${NC}"
     echo "  - Create a pull request to develop"
     echo "  - Or finish feature locally: ${GREEN}git flow feature finish ${feature_name}${NC}"
     
 elif [[ $CURRENT_BRANCH == $RELEASE_PREFIX* ]]; then
     release_version=${CURRENT_BRANCH#"$RELEASE_PREFIX"}
-    echo "${GREEN}✅ Pushing release: ${release_version}${NC}"
-    echo "${YELLOW}Remember:${NC}"
+    echo "${GREEN}✅ Pushing release branch: ${release_version}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
     echo "  - When testing is complete: ${GREEN}git flow release finish ${release_version}${NC}"
     
 elif [[ $CURRENT_BRANCH == $HOTFIX_PREFIX* ]]; then
     hotfix_version=${CURRENT_BRANCH#"$HOTFIX_PREFIX"}
-    echo "${GREEN}✅ Pushing hotfix: ${hotfix_version}${NC}"
-    echo "${YELLOW}Remember:${NC}"
+    echo "${GREEN}✅ Pushing hotfix branch: ${hotfix_version}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
     echo "  - When fix is verified: ${GREEN}git flow hotfix finish ${hotfix_version}${NC}"
+elif [[ $CURRENT_BRANCH == $BUGFIX_PREFIX* ]]; then
+    bugfix_name=${CURRENT_BRANCH#"$BUGFIX_PREFIX"}
+    echo "${GREEN}✅ Pushing bugfix branch: ${bugfix_name}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
+    echo "  - Create a pull request to develop"
+    echo "  - Wait for CI build to complete: ${GREEN}gh pr view${NC}"
+    echo "  - Or finish locally: ${GREEN}git flow bugfix finish ${bugfix_name}${NC}"
+    
+elif [[ $CURRENT_BRANCH == $SUPPORT_PREFIX* ]]; then
+    support_name=${CURRENT_BRANCH#"$SUPPORT_PREFIX"}
+    echo "${GREEN}✅ Pushing support branch: ${support_name}${NC}"
+    echo "${YELLOW}Next steps:${NC}"
+    echo "  - Create a pull request if needed"
+    echo "  - Support branches remain active for long-term maintenance"
 fi
 
 echo "${BLUE}----------------------------------------${NC}"
